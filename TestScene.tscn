@@ -1,0 +1,50 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://BoxKinematic.tscn" type="PackedScene" id=1]
+[ext_resource path="res://icon.png" type="Texture" id=2]
+[ext_resource path="res://Player.tscn" type="PackedScene" id=3]
+[ext_resource path="res://BoxSpawner.gd" type="Script" id=4]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 144, 31.5 )
+
+[node name="Node2D" type="Node2D"]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+position = Vector2( 0, 64 )
+
+[node name="Sprite" type="Sprite" parent="StaticBody2D"]
+scale = Vector2( 4.48438, 1 )
+texture = ExtResource( 2 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2( 1, 0.5 )
+shape = SubResource( 1 )
+
+[node name="Player" parent="." instance=ExtResource( 3 )]
+position = Vector2( -80, 14 )
+
+[node name="Camera2D" type="Camera2D" parent="."]
+current = true
+
+[node name="BoxSpawner" type="Node2D" parent="."]
+position = Vector2( 1, -413 )
+script = ExtResource( 4 )
+
+[node name="KinematicBody2D" parent="BoxSpawner" instance=ExtResource( 1 )]
+position = Vector2( 0, 412 )
+
+[node name="KinematicBody2D2" parent="BoxSpawner" instance=ExtResource( 1 )]
+position = Vector2( 0, 347 )
+
+[node name="KinematicBody2D3" parent="BoxSpawner" instance=ExtResource( 1 )]
+position = Vector2( 0, 282 )
+
+[node name="KinematicBody2D4" parent="BoxSpawner" instance=ExtResource( 1 )]
+position = Vector2( 0, 217 )
+
+[node name="KinematicBody2D5" parent="BoxSpawner" instance=ExtResource( 1 )]
+position = Vector2( 0, 152 )
+
+[node name="KinematicBody2D6" parent="BoxSpawner" instance=ExtResource( 1 )]
+position = Vector2( 0, 86 )
